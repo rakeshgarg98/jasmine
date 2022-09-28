@@ -2,12 +2,39 @@ import { PostComponent } from "./postComponent";
 
 describe('Post Component',()=>
 {
+    //arrange
+    let component:PostComponent;
+
+
+    // only once
+    beforeAll(()=>{
+
+    })
+    afterAll(()=>{
+        component=null;
+    })
+    beforeEach(()=>{
+    component = new PostComponent();
+    component.totalLikes=3;
+    })
+    afterEach(()=>{
+        
+    })
+    
+    
+    
+
     it('should increase likes',()=>{
-        let component = new PostComponent();
+        
+        // act
         component.like();
+        // assert
+        expect(component.totalLikes).toBe(4);
     })
     it('should decrease likes',()=>{
-        expect(1-1).toEqual(0);
+        component.dislike();
+        expect(component.totalLikes).toBe(2);
+
     })
 })
 
